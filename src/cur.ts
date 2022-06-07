@@ -9,7 +9,16 @@ import * as st from 'cdk-iam-floyd';
 import { Construct } from 'constructs';
 
 export interface CostReportingStackProps extends StackProps {
+  /**
+   * Name of the Cost and Usage report S3 bucket
+   */
   readonly costReportBucketName: string;
+  /**
+   * Name of the Cost and Usage report
+   *
+   * @default `default-cur`
+   */
+  readonly costReportName?: string;
 }
 
 export class CostReportingStack extends Stack {
@@ -32,7 +41,7 @@ export class CostReportingStack extends Stack {
       compression: 'GZIP',
       format: 'textORcsv',
       refreshClosedReports: false,
-      reportName: 'default-cur',
+      reportName: props.costReportName ?? 'default-cur',
       reportVersioning: 'CREATE_NEW_REPORT',
       s3Bucket: curBucket.bucketName,
       s3Prefix: 'reports',

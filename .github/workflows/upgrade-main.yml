@@ -15,7 +15,7 @@ jobs:
       patch_created: ${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           ref: main
       - name: Install dependencies
@@ -33,8 +33,6 @@ jobs:
         with:
           name: .repo.patch
           path: .repo.patch
-    container:
-      image: jsii/superchain:1-buster-slim-node14
   pr:
     name: Create Pull Request
     needs: upgrade
@@ -44,13 +42,19 @@ jobs:
       pull-requests: write
     if: ${{ needs.upgrade.outputs.patch_created }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - name: Generate token
+        id: generate_token
+        uses: tibdex/github-app-token@7ce9ffdcdeb2ba82b01b51d6584a6a85872336d4
         with:
-          token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
+          app_id: ${{ secrets.PROJEN_APP_ID }}
+          private_key: ${{ secrets.PROJEN_APP_PRIVATE_KEY }}
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ steps.generate_token.outputs.token }}
           ref: main
       - name: Download patch
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: .repo.patch
           path: ${{ runner.temp }}
@@ -64,7 +68,7 @@ jobs:
         id: create-pr
         uses: peter-evans/create-pull-request@v3
         with:
-          token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
+          token: ${{ steps.generate_token.outputs.token }}
           commit-message: |-
             chore(deps): upgrade dependencies
 
@@ -77,6 +81,7 @@ jobs:
             *Automatically created by projen via the "upgrade-main" workflow*
           branch: github-actions/upgrade-main
           title: "chore(deps): upgrade dependencies"
+          labels: auto-approve
           body: |-
             Upgrades project dependencies. See details in [workflow run].
 

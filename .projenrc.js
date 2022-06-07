@@ -1,15 +1,31 @@
-const { awscdk } = require('projen');
-const project = new awscdk.AwsCdkConstructLibrary({
-  author: 'Thorsten Hoeger',
-  authorAddress: 'thorsten.hoeger@taimos.de',
-  cdkVersion: '2.1.0',
-  defaultReleaseBranch: 'main',
-  name: 'cdk-controltower',
-  repositoryUrl: 'https://github.com/hoegertn/cdk-controltower.git',
+const { TaimosTypescriptLibrary } = require('@taimos/projen');
 
-  // deps: [],                /* Runtime dependencies of this module. */
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
-  // packageName: undefined,  /* The "name" in package.json. */
+const project = new TaimosTypescriptLibrary({
+  name: '@taimos/cdk-controltower',
+  authorAddress: 'info@taimos.de',
+  authorName: 'Taimos GmbH',
+  devDeps: [
+    '@taimos/projen',
+  ],
+  deps: [
+    'axios',
+    'esbuild',
+    '@aws-sdk/client-organizations',
+  ],
+  repository: 'https://github.com/taimos/cdk-controltower.git',
+  defaultReleaseBranch: 'main',
+  peerDeps: [
+    'aws-cdk-lib@^2.25.0',
+    'constructs@^10.0.0',
+  ],
+  keywords: [
+    'aws',
+    'lambda',
+    'dynamodb',
+  ],
+  bin: {
+    'fetch-accounts': 'lib/fetch-accounts.js',
+  },
 });
+
 project.synth();

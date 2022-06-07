@@ -115,6 +115,11 @@
       "type": "runtime"
     },
     {
+      "name": "cdk-iam-floyd",
+      "version": "0.376.0",
+      "type": "runtime"
+    },
+    {
       "name": "esbuild",
       "type": "runtime"
     }

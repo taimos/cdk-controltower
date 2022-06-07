@@ -19,9 +19,9 @@ const project = new TaimosTypescriptLibrary({
     'constructs@^10.0.0',
   ],
   keywords: [
-    'aws',
-    'lambda',
-    'dynamodb',
+    'cdk',
+    'organizations',
+    'controltower',
   ],
   bin: {
     'fetch-accounts': 'lib/fetch-accounts.js',

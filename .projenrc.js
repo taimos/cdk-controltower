@@ -4,6 +4,7 @@ const project = new TaimosTypescriptLibrary({
   name: '@taimos/cdk-controltower',
   authorAddress: 'info@taimos.de',
   authorName: 'Taimos GmbH',
+  majorVersion: 1,
   devDeps: [
     '@taimos/projen',
   ],
@@ -11,12 +12,12 @@ const project = new TaimosTypescriptLibrary({
     'axios',
     'esbuild',
     '@aws-sdk/client-organizations',
-    'cdk-iam-floyd@0.376.0', // BREAKING CHANGE IN 377; Only use with CDK >= 2.26
+    'cdk-iam-floyd',
   ],
   repository: 'https://github.com/taimos/cdk-controltower.git',
   defaultReleaseBranch: 'main',
   peerDeps: [
-    'aws-cdk-lib@^2.25.0',
+    'aws-cdk-lib@^2.26.0',
     'constructs@^10.0.0',
   ],
   keywords: [

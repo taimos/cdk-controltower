@@ -23,8 +23,7 @@ export async function generateAccountFile(): Promise<string> {
     NextToken = res.NextToken;
   } while (NextToken);
 
-  let file = '';
-  file += `// THIS FILE IS GENERATED; DO NOT MODIFY MANUALLY
+  return `// THIS FILE IS GENERATED; DO NOT MODIFY MANUALLY
 /* eslint-disable quotes */
 /* eslint-disable quote-props */
 /* eslint-disable comma-dangle */
@@ -32,8 +31,6 @@ import { AccountList } from '@taimos/cdk-controltower';
 
 export type AccountName = ${Object.keys(accounts).map(name => `'${name}'`).join(' | ')};
 
+export const ACCOUNTS: AccountList<AccountName> = ${JSON.stringify(accounts, null, 2)};
 `;
-
-  file += 'export const ACCOUNTS: AccountList<AccountName> = ' + JSON.stringify(accounts, null, 2) + ';';
-  return file;
 }

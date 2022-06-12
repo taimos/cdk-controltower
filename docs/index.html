@@ -1,5 +1,74 @@
 <!DOCTYPE html><html class="default"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>@taimos/cdk-controltower</title><meta name="description" content="Documentation for @taimos/cdk-controltower"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.body.classList.add(localStorage.getItem("tsd-theme") || "os")</script><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">@taimos/cdk-controltower</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label><input type="checkbox" id="tsd-filter-externals" checked/><label class="tsd-widget" for="tsd-filter-externals">Externals</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1>@taimos/cdk-controltower </h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><div class="tsd-panel tsd-typography">
-<a href="#replace-this" id="replace-this" style="color: inherit; text-decoration: none;">
-  <h1>replace this</h1>
+<a href="#cdk-controltower" id="cdk-controltower" style="color: inherit; text-decoration: none;">
+  <h1>CDK ControlTower</h1>
 </a>
+<p><a href="https://badge.fury.io/js/@taimos%2Fcdk-controltower"><img src="https://badge.fury.io/js/@taimos%2Fcdk-controltower.svg" alt="npm version"></a></p>
+<p>CDK ControlTower is a tool suite to facilitate the use of the AWS Cloud Development Kit (CDK) for AWS Account management and Landing Zone setup. It provides project management features to configure your TypeScript CDK app and also higher-level (L3) constructs for different APIs and resources needed for account management.</p>
+
+<a href="#features" id="features" style="color: inherit; text-decoration: none;">
+  <h3>Features</h3>
+</a>
+<ul>
+<li>AWS CDK L3-construct for SSO permission management</li>
+<li>AWS CDK L3-construct for Budget and Cost Reporting</li>
+<li>AWS CDK L3-construct for VPC FLow Log buckets</li>
+<li>Projen helper classes to configure certain use cases easily (soon)</li>
+<li>Full features of CDK usable to implement your special use cases</li>
+<li>Fully typed auto-completion for AWS account names</li>
+</ul>
+
+<a href="#contribute" id="contribute" style="color: inherit; text-decoration: none;">
+  <h2>Contribute</h2>
+</a>
+
+<a href="#how-to-contribute-to-cdk-controltower" id="how-to-contribute-to-cdk-controltower" style="color: inherit; text-decoration: none;">
+  <h3>How to contribute to CDK ControlTower</h3>
+</a>
+
+<a href="#did-you-find-a-bug" id="did-you-find-a-bug" style="color: inherit; text-decoration: none;">
+  <h4><strong>Did you find a bug?</strong></h4>
+</a>
+<ul>
+<li><p><strong>Ensure the bug was not already reported</strong> by searching on GitHub under <a href="https://github.com/taimos/cdk-controltower/issues">Issues</a>.</p>
+</li>
+<li><p>If you&#39;re unable to find an open issue addressing the problem, <a href="https://github.com/taimos/cdk-controltower/issues/new">open a new one</a>. Be sure to include a <strong>title and clear description</strong>, as much relevant information as possible, and a <strong>code sample</strong> or an <strong>executable test case</strong> demonstrating the expected behavior that is not occurring.</p>
+</li>
+</ul>
+
+<a href="#did-you-write-a-patch-that-fixes-a-bug" id="did-you-write-a-patch-that-fixes-a-bug" style="color: inherit; text-decoration: none;">
+  <h4><strong>Did you write a patch that fixes a bug?</strong></h4>
+</a>
+<ul>
+<li><p>Open a new GitHub pull request with the patch.</p>
+</li>
+<li><p>Ensure the PR description clearly describes the problem and solution. Include the relevant issue number if applicable.</p>
+</li>
+</ul>
+
+<a href="#did-you-fix-whitespace-format-code-or-make-a-purely-cosmetic-patch" id="did-you-fix-whitespace-format-code-or-make-a-purely-cosmetic-patch" style="color: inherit; text-decoration: none;">
+  <h4><strong>Did you fix whitespace, format code, or make a purely cosmetic patch?</strong></h4>
+</a>
+<p>Changes that are cosmetic in nature and do not add anything substantial to the stability, functionality, or testability will normally not be accepted.</p>
+
+<a href="#do-you-intend-to-add-a-new-feature-or-change-an-existing-one" id="do-you-intend-to-add-a-new-feature-or-change-an-existing-one" style="color: inherit; text-decoration: none;">
+  <h4><strong>Do you intend to add a new feature or change an existing one?</strong></h4>
+</a>
+<ul>
+<li><p>Suggest your change under <a href="https://github.com/taimos/cdk-controltower/issues">Issues</a>.</p>
+</li>
+<li><p>Do not open a pull request on GitHub until you have collected positive feedback about the change.</p>
+</li>
+</ul>
+
+<a href="#do-you-want-to-contribute-to-the-cdk-controltower-documentation" id="do-you-want-to-contribute-to-the-cdk-controltower-documentation" style="color: inherit; text-decoration: none;">
+  <h4><strong>Do you want to contribute to the CDK ControlTower documentation?</strong></h4>
+</a>
+<ul>
+<li>Just file a PR with your recommended changes</li>
+</ul>
+
+<a href="#authors" id="authors" style="color: inherit; text-decoration: none;">
+  <h2>Authors</h2>
+</a>
+<p>Brought to you by <a href="https://taimos.de">Taimos</a></p>
 </div></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Exports</a></li></ul></nav><nav class="tsd-navigation secondary menu-sticky"><ul><li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/BudgetStack.html" class="tsd-kind-icon">Budget<wbr/>Stack</a></li><li class="tsd-kind-class"><a href="classes/CostReportingStack.html" class="tsd-kind-icon">Cost<wbr/>Reporting<wbr/>Stack</a></li><li class="tsd-kind-class"><a href="classes/LogBucketStack.html" class="tsd-kind-icon">Log<wbr/>Bucket<wbr/>Stack</a></li><li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/SsoPermissionStack.html" class="tsd-kind-icon">Sso<wbr/>Permission<wbr/>Stack</a></li><li class="tsd-kind-interface"><a href="interfaces/AccountInfo.html" class="tsd-kind-icon">Account<wbr/>Info</a></li><li class="tsd-kind-interface tsd-has-type-parameter"><a href="interfaces/BudgetStackProps.html" class="tsd-kind-icon">Budget<wbr/>Stack<wbr/>Props</a></li><li class="tsd-kind-interface"><a href="interfaces/CostReportingStackProps.html" class="tsd-kind-icon">Cost<wbr/>Reporting<wbr/>Stack<wbr/>Props</a></li><li class="tsd-kind-interface"><a href="interfaces/LogBucketStackProps.html" class="tsd-kind-icon">Log<wbr/>Bucket<wbr/>Stack<wbr/>Props</a></li><li class="tsd-kind-interface"><a href="interfaces/PermissionSetOptions.html" class="tsd-kind-icon">Permission<wbr/>Set<wbr/>Options</a></li><li class="tsd-kind-interface tsd-has-type-parameter"><a href="interfaces/SsoPermissionStackProps.html" class="tsd-kind-icon">Sso<wbr/>Permission<wbr/>Stack<wbr/>Props</a></li><li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="modules.html#AccountList" class="tsd-kind-icon">Account<wbr/>List</a></li><li class="tsd-kind-function"><a href="modules.html#generateAccountFile" class="tsd-kind-icon">generate<wbr/>Account<wbr/>File</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Legend</h2><div class="tsd-legend-group"><ul class="tsd-legend"><li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li><li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li></ul></div><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>

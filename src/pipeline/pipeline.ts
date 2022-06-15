@@ -61,7 +61,7 @@ export class ControlTowerPipeline<T extends string> extends Stack {
     }));
   }
 
-  public addBillingConfig(budgetConfig: BudgetConfig<T>, costReportConfig: CostReportingConfig) {
+  public addBillingConfig(budgetConfig?: BudgetConfig<T>, costReportConfig?: CostReportingConfig) {
     this.addStage(new BillingStage(this, {
       orgPrincipalEnv: this.props.orgPrincipalEnv,
       accounts: this.props.accounts,

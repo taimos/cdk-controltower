@@ -4,12 +4,13 @@ import {
   StackProps,
 } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { AccountList } from './aws-org';
+import { AccountConfig, ControlTowerProps } from './aws-org';
 
-export interface BudgetStackProps<T extends string> extends StackProps {
-  readonly accounts: AccountList<T>;
-  readonly budgets: { [name in T]?: number };
+export interface BudgetConfig<T extends string> {
+  readonly budgets: AccountConfig<T, number>;
 }
+
+export type BudgetStackProps<T extends string> = BudgetConfig<T> & StackProps & ControlTowerProps<T>;
 
 export class BudgetStack<T extends string> extends Stack {
   constructor(scope: Construct, id: string, props: BudgetStackProps<T>) {

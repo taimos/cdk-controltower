@@ -7,12 +7,15 @@ import {
 } from 'aws-cdk-lib';
 import * as st from 'cdk-iam-floyd';
 import { Construct } from 'constructs';
+import { OrgPrincipalAware } from './aws-org';
 
-export interface CostReportingStackProps extends StackProps {
+export interface CostReportingConfig {
   /**
    * Name of the Cost and Usage report S3 bucket
+   *
+   * @default `${orgPrincipalAccount}-costreport`
    */
-  readonly costReportBucketName: string;
+  readonly costReportBucketName?: string;
   /**
    * Name of the Cost and Usage report
    *
@@ -21,6 +24,8 @@ export interface CostReportingStackProps extends StackProps {
   readonly costReportName?: string;
 }
 
+export type CostReportingStackProps = CostReportingConfig & StackProps & OrgPrincipalAware;
+
 export class CostReportingStack extends Stack {
   constructor(scope: Construct, id: string, props: CostReportingStackProps) {
     super(scope, id, props);
@@ -28,7 +33,7 @@ export class CostReportingStack extends Stack {
     const globalCURAccountId = '386209384616';
 
     const curBucket = new s3.Bucket(this, 'CurBucket', {
-      bucketName: props.costReportBucketName,
+      bucketName: props.costReportBucketName ?? `${props.orgPrincipalEnv.account!}-costreport`,
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
       enforceSSL: true,
     });

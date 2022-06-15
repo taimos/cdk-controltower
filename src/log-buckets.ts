@@ -6,10 +6,9 @@ import {
   StackProps,
 } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
+import { OrgPrincipalAware } from './aws-org';
 
-export interface LogBucketStackProps extends StackProps {
-  readonly orgAccountId: string;
-}
+export type LogBucketStackProps = StackProps & OrgPrincipalAware;
 
 export class LogBucketStack extends Stack {
 
@@ -24,7 +23,7 @@ export class LogBucketStack extends Stack {
     });
     encryptionKey.grantEncryptDecrypt(new iam.ServicePrincipal('delivery.logs.amazonaws.com'));
 
-    this.flowLogsBucketName = `${props.orgAccountId}-vpc-flow-logs`;
+    this.flowLogsBucketName = `${props.orgPrincipalEnv.account!}-vpc-flow-logs`;
     const flowLogsBucket = new s3.Bucket(this, 'FlowLogs', {
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
       encryptionKey,

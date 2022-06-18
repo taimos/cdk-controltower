@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@taimos/projen": "^0.0.183",
-    "@types/jest": "^28.1.1",
+    "@types/jest": "^28.1.2",
     "@types/node": "^14",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
@@ -65,7 +65,7 @@
   "dependencies": {
     "@aws-sdk/client-organizations": "^3.112.0",
     "axios": "^0.27.2",
-    "cdk-iam-floyd": "^0.382.0",
+    "cdk-iam-floyd": "^0.384.0",
     "esbuild": "^0.14.45"
   },
   "keywords": [

@@ -65,7 +65,7 @@
   "dependencies": {
     "@aws-sdk/client-organizations": "^3.112.0",
     "axios": "^0.27.2",
-    "cdk-iam-floyd": "^0.385.0",
+    "cdk-iam-floyd": "^0.386.0",
     "esbuild": "^0.14.47"
   },
   "keywords": [

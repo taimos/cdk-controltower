@@ -5149,9 +5149,9 @@ npmlog@^6.0.0:
     set-blocking "^2.0.0"
 
 nwsapi@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/nwsapi/-/nwsapi-2.2.0.tgz#204879a9e3d068ff2a55139c2c772780681a38b7"
-  integrity sha512-h2AatdwYH+JHiZpv7pt/gSX1XoRGb7L/qSIeuqA6GwYoF9w1vP1cw42TO0aI2pNyshRK5893hNSl+1//vHK7hQ==
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/nwsapi/-/nwsapi-2.2.1.tgz#10a9f268fbf4c461249ebcfe38e359aa36e2577c"
+  integrity sha512-JYOWTeFoS0Z93587vRJgASD5Ut11fYl5NyihP3KrYBvMe1FRRs6RN7m20SA/16GM4P6hTnZjT+UmDOt38UeXNg==
 
 object-inspect@^1.12.0, object-inspect@^1.9.0:
   version "1.12.2"
@@ -6389,9 +6389,9 @@ typedarray@^0.0.6:
   integrity sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==
 
 typedoc@*:
-  version "0.22.17"
-  resolved "https://registry.yarnpkg.com/typedoc/-/typedoc-0.22.17.tgz#bc51cc95f569040112504300831cdac4f8089b7b"
-  integrity sha512-h6+uXHVVCPDaANzjwzdsj9aePBjZiBTpiMpBBeyh1zcN2odVsDCNajz8zyKnixF93HJeGpl34j/70yoEE5BfNg==
+  version "0.22.18"
+  resolved "https://registry.yarnpkg.com/typedoc/-/typedoc-0.22.18.tgz#1d000c33b66b88fd8cdfea14a26113a83b7e6591"
+  integrity sha512-NK9RlLhRUGMvc6Rw5USEYgT4DVAUFk7IF7Q6MYfpJ88KnTZP7EneEa4RcP+tX1auAcz7QT1Iy0bUSZBYYHdoyA==
   dependencies:
     glob "^8.0.3"
     lunr "^2.3.9"

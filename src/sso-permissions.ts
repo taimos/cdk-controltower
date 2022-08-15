@@ -33,6 +33,12 @@ export interface PermissionSetOptions {
    * @link http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-sessionduration
    */
   readonly sessionDuration?: string;
+  /**
+   * Used to redirect users within the application during the federation authentication process.
+   *
+   * @link http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-relaystatetype
+   */
+  readonly relayStateType?: string;
 }
 
 /**
@@ -111,6 +117,7 @@ export class SsoPermissionStack<T extends string> extends Stack {
         'arn:aws:iam::aws:policy/AdministratorAccess',
       ],
       sessionDuration: props.adminSetOptions?.sessionDuration ?? 'PT8H',
+      relayStateType: props.adminSetOptions?.relayStateType,
     });
     this.permissionSets.Admin = adminPermissionSet;
 
@@ -123,6 +130,7 @@ export class SsoPermissionStack<T extends string> extends Stack {
         'arn:aws:iam::aws:policy/ReadOnlyAccess',
       ],
       sessionDuration: props.readOnlySetOptions?.sessionDuration ?? 'PT8H',
+      relayStateType: props.readOnlySetOptions?.relayStateType,
     });
     this.permissionSets.ReadOnly = readOnlyPermissionSet;
 
@@ -136,6 +144,7 @@ export class SsoPermissionStack<T extends string> extends Stack {
         'arn:aws:iam::aws:policy/ReadOnlyAccess',
       ],
       sessionDuration: props.billingSetOptions?.sessionDuration ?? 'PT8H',
+      relayStateType: props.billingSetOptions?.relayStateType ?? 'https://us-east-1.console.aws.amazon.com/billing/home#/',
     });
     this.permissionSets.Billing = billingPermissionSet;
 
@@ -148,6 +157,7 @@ export class SsoPermissionStack<T extends string> extends Stack {
         inlinePolicy: permSetOptions?.inlinePolicy,
         managedPolicies: permSetOptions?.managedPolicies,
         sessionDuration: permSetOptions?.sessionDuration ?? 'PT8H',
+        relayStateType: permSetOptions.relayStateType,
       });
     }
 

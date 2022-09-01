@@ -107,7 +107,10 @@ export async function generateSsoConfigFile(): Promise<string> {
   let NextToken;
   do {
     const res = (await idClient.send(new ListGroupsCommand({ IdentityStoreId: ssoInstance.IdentityStoreId!, NextToken })) as ListGroupsCommandOutput);
-    res.Groups?.forEach(grp => groups[grp.DisplayName!] = grp);
+    res.Groups?.forEach(grp => {
+      delete grp.IdentityStoreId;
+      groups[grp.DisplayName!] = grp;
+    });
     NextToken = res.NextToken;
   } while (NextToken);
 

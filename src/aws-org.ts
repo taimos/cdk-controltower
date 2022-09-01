@@ -128,6 +128,6 @@ export const SSO_CONFIG: SsoConfig<GroupName> = {
   instanceArn: '${ssoInstance.InstanceArn}',
   identityStoreId: '${ssoInstance.IdentityStoreId}',
   groups: GROUPS,
-}
+};
 `;
 }

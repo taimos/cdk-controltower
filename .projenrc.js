@@ -12,6 +12,8 @@ const project = new TaimosTypescriptLibrary({
     'axios',
     'esbuild',
     '@aws-sdk/client-organizations',
+    '@aws-sdk/client-identitystore',
+    '@aws-sdk/client-sso-admin',
     'cdk-iam-floyd',
   ],
   repository: 'https://github.com/taimos/cdk-controltower.git',
@@ -27,6 +29,12 @@ const project = new TaimosTypescriptLibrary({
   ],
   bin: {
     'fetch-accounts': 'lib/fetch-accounts.js',
+    'fetch-sso-config': 'lib/fetch-sso-config.js',
+  },
+  tsconfig: {
+    compilerOptions: {
+      skipLibCheck: true,
+    },
   },
 });
 

@@ -6,7 +6,7 @@ import {
 } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { AccountPermission } from './account-permission-sfn';
-import { AccountConfig, ControlTowerProps } from './aws-org';
+import { AccountConfig, GroupConfig, SsoProps } from './aws-org';
 
 export interface PermissionSetOptions {
   /**
@@ -41,19 +41,7 @@ export interface PermissionSetOptions {
   readonly relayStateType?: string;
 }
 
-/**
- * Properties of the SSO stack
- *
- * @param T - the AccountName type of the generated account list
- */
-export interface SsoProps<T extends string> extends ControlTowerProps<T> {
-  /**
-   * The ARN of the SSO instance
-   */
-  readonly ssoInstanceArn: string;
-}
-
-export interface SsoPermissionConfig<T extends string> {/**
+export interface SsoPermissionConfig<T extends string, S extends string> {/**
    * Assignments of groups to AWS accounts and permission sets
    *
    * Specify here who has which access to what.
@@ -65,7 +53,7 @@ export interface SsoPermissionConfig<T extends string> {/**
    *}
    * ```
    */
-  readonly groupPermissions: AccountConfig<T, { [groupId: string]: string[] }>;
+  readonly groupPermissions: AccountConfig<T, GroupConfig<S, string[]>>;
   /**
    * optional configuration options for the Admin permission set
    *
@@ -94,18 +82,18 @@ export interface SsoPermissionConfig<T extends string> {/**
    * Use this to grant your admins permissions for every account directly after creation
    */
   readonly defaultAssignmentsForNewAccount?: {
-    readonly groupId: string;
+    readonly groupName: S;
     readonly permissionSetName: string;
   }[];
 }
 
-export type SsoPermissionStackProps<T extends string> = SsoProps<T> & SsoPermissionConfig<T> & StackProps;
+export type SsoPermissionStackProps<T extends string, S extends string> = SsoProps<T, S> & SsoPermissionConfig<T, S> & StackProps;
 
-export class SsoPermissionStack<T extends string> extends Stack {
+export class SsoPermissionStack<T extends string, S extends string> extends Stack {
 
   private permissionSets: { [name: string]: sso.CfnPermissionSet } = {};
 
-  constructor(scope: Construct, id: string, props: SsoPermissionStackProps<T>) {
+  constructor(scope: Construct, id: string, props: SsoPermissionStackProps<T, S>) {
     super(scope, id, props);
 
     const adminPermissionSet = new sso.CfnPermissionSet(this, 'AdminSet', {
@@ -163,8 +151,9 @@ export class SsoPermissionStack<T extends string> extends Stack {
 
     for (const accountName of Object.keys(props.groupPermissions)) {
       const account = props.accounts[accountName as T];
-      for (const groupId of Object.keys(props.groupPermissions[accountName as T]!)) {
-        for (const perm of props.groupPermissions[accountName as T]![groupId]) {
+      for (const groupName of Object.keys(props.groupPermissions[accountName as T]!)) {
+        const groupId = props.ssoConfig.groups[groupName as S].GroupId;
+        for (const perm of props.groupPermissions[accountName as T]![groupName as S]!) {
           const permSet = this.permissionSets[perm];
           if (!permSet) {
             throw new Error('Invalid permission set type found: ' + perm);
@@ -186,7 +175,7 @@ export class SsoPermissionStack<T extends string> extends Stack {
       new AccountPermission(this, 'AccountCreationWorkflow', {
         ssoInstanceArn: props.ssoInstanceArn,
         defaultAssignments: props.defaultAssignmentsForNewAccount.map(a => ({
-          groupId: a.groupId,
+          groupId: props.ssoConfig.groups[a.groupName as S].GroupId,
           permissionSetName: a.permissionSetName,
           permissionSet: this.permissionSets[a.permissionSetName],
         })),

@@ -11,7 +11,7 @@ CDK ControlTower is a tool suite to facilitate the use of the AWS Cloud Developm
 - AWS CDK L3-construct for VPC FLow Log buckets
 - Projen helper classes to configure certain use cases easily (soon)
 - Full features of CDK usable to implement your special use cases
-- Fully typed auto-completion for AWS account names
+- Fully typed auto-completion for AWS account names and SSO group names
 
 
 ## Contribute

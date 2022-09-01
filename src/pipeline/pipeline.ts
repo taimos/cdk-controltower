@@ -3,22 +3,22 @@ import { Stack, StackProps } from 'aws-cdk-lib';
 import { Repository } from 'aws-cdk-lib/aws-codecommit';
 import * as pipelines from 'aws-cdk-lib/pipelines';
 import * as constructs from 'constructs';
-import { OrgPrincipalAware } from '../aws-org';
+import { OrgPrincipalAware, SsoProps } from '../aws-org';
 import { BudgetConfig } from '../budget';
 import { CostReportingConfig } from '../cur';
-import { SsoPermissionConfig, SsoProps } from '../sso-permissions';
+import { SsoPermissionConfig } from '../sso-permissions';
 import { BillingStage } from './billing-stage';
 import { LogArchiveStage } from './log-archive-stage';
 import { SsoStage } from './sso-stage';
 
-export type ControlTowerPipelineProps<T extends string> = SsoProps<T> & OrgPrincipalAware & StackProps;
+export type ControlTowerPipelineProps<T extends string, S extends string> = SsoProps<T, S> & OrgPrincipalAware & StackProps;
 
-export class ControlTowerPipeline<T extends string> extends Stack {
+export class ControlTowerPipeline<T extends string, S extends string> extends Stack {
 
   public readonly pipeline: pipelines.CodePipeline;
   public readonly repository: Repository;
 
-  constructor(scope: constructs.Construct, private props: ControlTowerPipelineProps<T>) {
+  constructor(scope: constructs.Construct, private props: ControlTowerPipelineProps<T, S>) {
     super(scope, 'CDKCT-Pipeline', {
       env: props.env ?? props.orgPrincipalEnv,
       stackName: 'CDKCT-Pipeline',
@@ -52,11 +52,12 @@ export class ControlTowerPipeline<T extends string> extends Stack {
     return this.pipeline.addStage(appStage, options);
   }
 
-  public addSsoConfig(permissionsConfiguration?: SsoPermissionConfig<T>) {
+  public addSsoConfig(permissionsConfiguration?: SsoPermissionConfig<T, S>) {
     this.addStage(new SsoStage(this, {
       orgPrincipalEnv: this.props.orgPrincipalEnv,
       accounts: this.props.accounts,
       ssoInstanceArn: this.props.ssoInstanceArn,
+      ssoConfig: this.props.ssoConfig,
       permissionsConfiguration,
     }));
   }

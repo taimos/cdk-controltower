@@ -97,7 +97,7 @@ export class SsoPermissionStack<T extends string, S extends string> extends Stac
     super(scope, id, props);
 
     const adminPermissionSet = new sso.CfnPermissionSet(this, 'AdminSet', {
-      instanceArn: props.ssoInstanceArn,
+      instanceArn: props.ssoConfig.instanceArn,
       name: 'AdminAccess',
       description: props.adminSetOptions?.description ?? 'Grant administrative access',
       inlinePolicy: props.adminSetOptions?.inlinePolicy,
@@ -110,7 +110,7 @@ export class SsoPermissionStack<T extends string, S extends string> extends Stac
     this.permissionSets.Admin = adminPermissionSet;
 
     const readOnlyPermissionSet = new sso.CfnPermissionSet(this, 'ReadOnlySet', {
-      instanceArn: props.ssoInstanceArn,
+      instanceArn: props.ssoConfig.instanceArn,
       name: 'ReadOnlyAccess',
       description: props.readOnlySetOptions?.description ?? 'Grant read-only access',
       inlinePolicy: props.readOnlySetOptions?.inlinePolicy,
@@ -123,7 +123,7 @@ export class SsoPermissionStack<T extends string, S extends string> extends Stac
     this.permissionSets.ReadOnly = readOnlyPermissionSet;
 
     const billingPermissionSet = new sso.CfnPermissionSet(this, 'BillingSet', {
-      instanceArn: props.ssoInstanceArn,
+      instanceArn: props.ssoConfig.instanceArn,
       name: 'BillingAccess',
       description: props.billingSetOptions?.description ?? 'Grant read-only and billing access',
       inlinePolicy: props.billingSetOptions?.inlinePolicy,
@@ -139,7 +139,7 @@ export class SsoPermissionStack<T extends string, S extends string> extends Stac
     for (const permSetName of Object.keys(props.permissionSets ?? {})) {
       const permSetOptions = props.permissionSets![permSetName];
       this.permissionSets[permSetName] = new sso.CfnPermissionSet(this, `${permSetName}Set`, {
-        instanceArn: props.ssoInstanceArn,
+        instanceArn: props.ssoConfig.instanceArn,
         name: `${permSetName}Access`,
         description: permSetOptions?.description,
         inlinePolicy: permSetOptions?.inlinePolicy,
@@ -160,7 +160,7 @@ export class SsoPermissionStack<T extends string, S extends string> extends Stac
           }
 
           new sso.CfnAssignment(this, `Assignment-${account.Id}-${groupId}-${perm}Access`, {
-            instanceArn: props.ssoInstanceArn,
+            instanceArn: props.ssoConfig.instanceArn,
             permissionSetArn: permSet.attrPermissionSetArn,
             targetType: 'AWS_ACCOUNT',
             targetId: account.Id,
@@ -173,7 +173,7 @@ export class SsoPermissionStack<T extends string, S extends string> extends Stac
 
     if (props.defaultAssignmentsForNewAccount) {
       new AccountPermission(this, 'AccountCreationWorkflow', {
-        ssoInstanceArn: props.ssoInstanceArn,
+        ssoInstanceArn: props.ssoConfig.instanceArn,
         defaultAssignments: props.defaultAssignmentsForNewAccount.map(a => ({
           groupId: props.ssoConfig.groups[a.groupName as S].GroupId,
           permissionSetName: a.permissionSetName,

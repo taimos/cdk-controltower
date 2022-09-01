@@ -56,7 +56,6 @@ export class ControlTowerPipeline<T extends string, S extends string> extends St
     this.addStage(new SsoStage(this, {
       orgPrincipalEnv: this.props.orgPrincipalEnv,
       accounts: this.props.accounts,
-      ssoInstanceArn: this.props.ssoInstanceArn,
       ssoConfig: this.props.ssoConfig,
       permissionsConfiguration,
     }));

@@ -23,7 +23,6 @@ export class SsoStage<T extends string, S extends string> extends Stage {
         env: props.orgPrincipalEnv,
         stackName: 'sso-permissions',
         accounts: props.accounts,
-        ssoInstanceArn: props.ssoInstanceArn,
         ssoConfig: props.ssoConfig,
         ...props.permissionsConfiguration,
       });

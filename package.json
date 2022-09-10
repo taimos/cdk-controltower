@@ -52,7 +52,7 @@
     "jest-junit": "^13",
     "json-schema": "^0.4.0",
     "npm-check-updates": "^15",
-    "projen": "^0.61.46",
+    "projen": "^0.62.0",
     "standard-version": "^9",
     "ts-jest": "^27",
     "ts-node": "^10.9.1",
@@ -64,11 +64,11 @@
     "constructs": "^10.0.0"
   },
   "dependencies": {
-    "@aws-sdk/client-identitystore": "^3.165.0",
-    "@aws-sdk/client-organizations": "^3.165.0",
-    "@aws-sdk/client-sso-admin": "^3.165.0",
+    "@aws-sdk/client-identitystore": "^3.168.0",
+    "@aws-sdk/client-organizations": "^3.168.0",
+    "@aws-sdk/client-sso-admin": "^3.168.0",
     "axios": "^0.27.2",
-    "cdk-iam-floyd": "^0.425.0",
+    "cdk-iam-floyd": "^0.426.0",
     "esbuild": "^0.15.7"
   },
   "keywords": [

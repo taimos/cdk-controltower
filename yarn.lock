@@ -1458,9 +1458,9 @@
     config-chain "^1.1.11"
 
 "@sinclair/typebox@^0.24.1":
-  version "0.24.39"
-  resolved "https://registry.yarnpkg.com/@sinclair/typebox/-/typebox-0.24.39.tgz#21d0c56c295a00e391e20a88a48c11d4a1210ac5"
-  integrity sha512-GqtkxoAjhTzoMwFg/JYRl+1+miOoyvp6mkLpbMSd2fIQak2KvY00ndlXxxkDBpuCPYkorZeEZf0LEQn9V9NRVQ==
+  version "0.24.40"
+  resolved "https://registry.yarnpkg.com/@sinclair/typebox/-/typebox-0.24.40.tgz#00ee9b48537b147f6ffc80ebc28ab16d6016ed5c"
+  integrity sha512-Xint60L8rF0+nRy+6fCjW9jQMmu7fTpbwTBrXZiK6eq/RHDJS7LvWX/0oXC8O7fCePmrY/XdfaTv2HiUDeCq4g==
 
 "@sindresorhus/is@^5.2.0":
   version "5.3.0"
@@ -1898,9 +1898,9 @@ ansi-styles@^5.0.0:
   integrity sha512-Cxwpt2SfTzTtXcfOlzGEee8O+c+MmUgGrNiBcXnuWxuFJHe6a5Hz7qwhwe5OgaSYI0IJvkLqWX1ASG+cJOkEiA==
 
 ansi-styles@^6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-6.1.0.tgz#87313c102b8118abd57371afab34618bf7350ed3"
-  integrity sha512-VbqNsoz55SYGczauuup0MFUyXNQviSpFTj1RQtFzmQLk18qbVSpTFFGMT293rmDaQuKCT6InmbuEyUne4mTuxQ==
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-6.1.1.tgz#63cd61c72283a71cb30bd881dbb60adada74bc70"
+  integrity sha512-qDOv24WjnYuL+wbwHdlsYZFy+cgPtrYw0Tn7GLORicQp9BkQLzrgI3Pm4VyR9ERZ41YTn7KlMPuL1n05WdZvmg==
 
 anymatch@^3.0.3:
   version "3.1.2"
@@ -2246,10 +2246,10 @@ case@1.6.3, case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk-iam-floyd@^0.426.0:
-  version "0.426.0"
-  resolved "https://registry.yarnpkg.com/cdk-iam-floyd/-/cdk-iam-floyd-0.426.0.tgz#44c625614ec5b1a26fb60da28a94056116be29ab"
-  integrity sha512-35dHpjkPB0xcxokyKWO0XT2N4KaZB8xTiYSvYD74q8eJwQja0gdiNVZ1/Pg/if2J3WgTpRZoATO6WqjMdOru7g==
+cdk-iam-floyd@^0.427.0:
+  version "0.427.0"
+  resolved "https://registry.yarnpkg.com/cdk-iam-floyd/-/cdk-iam-floyd-0.427.0.tgz#1840ad8a8164a96028cf7fa00706d899eb36162b"
+  integrity sha512-7KV1znpeaT6gG7cAZKxUtKq098AKz/ZO40Da5WSrOYfs8wHhFeFzTStZPvRyxz8tOcGitEFXU33cCmVNFRCuuw==
   dependencies:
     "@udondan/common-substrings" "^3.0.2"
     regex-parser "^2.2.11"
@@ -5751,10 +5751,10 @@ progress@^2.0.3:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-projen@^0.62.0:
-  version "0.62.0"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.62.0.tgz#50d45423565f6bf9b56dedeb7eab55bb88c5a000"
-  integrity sha512-ZRdHX8GFC7j1dep8ZrlYQZwEyiu+YEj06tmmaPUBoOSU6bE73BEu9t0mJ98pobo1+Hvv6Xlj6WSnVMTVShF7aw==
+projen@^0.62.1:
+  version "0.62.1"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.62.1.tgz#9cb37f48d2ea2a3f4b81264a4f6cb40fd750218c"
+  integrity sha512-L2V6SjFP/Tp/7gOpvkrbdQiy/IO4WyXNJYGUYAoyikUZnncNXIDnXqupq219A+FE14MBO8d6JfF90ONHsHknQw==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"

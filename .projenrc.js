@@ -1,10 +1,12 @@
 const { TaimosTypescriptLibrary } = require('@taimos/projen');
+const { UpgradeDependenciesSchedule } = require('projen/lib/javascript');
 
 const project = new TaimosTypescriptLibrary({
   name: '@taimos/cdk-controltower',
   authorAddress: 'info@taimos.de',
   authorName: 'Taimos GmbH',
   majorVersion: 1,
+  depsUpgradeOptions: { workflowOptions: { schedule: UpgradeDependenciesSchedule.WEEKLY } },
   devDeps: [
     '@taimos/projen',
   ],

@@ -1490,10 +1490,10 @@
   dependencies:
     defer-to-connect "^2.0.1"
 
-"@taimos/projen@^0.0.183":
-  version "0.0.183"
-  resolved "https://registry.yarnpkg.com/@taimos/projen/-/projen-0.0.183.tgz#be92d88ca9263fd1d016569b4611b09c8322fa50"
-  integrity sha512-DgohhMGwMS/2p4QqIuM1MKnzjKOEeuKcIbziRKeGwgZtSo/nyLvDda4817JWQ4v4oNG0eGfmmYlxmwdjm9t4FA==
+"@taimos/projen@^0.0.184":
+  version "0.0.184"
+  resolved "https://registry.yarnpkg.com/@taimos/projen/-/projen-0.0.184.tgz#82aacd1cabec1be20198d6d5405c0bbe33ff7f0a"
+  integrity sha512-Z03lgNeVroMwRfIZyG5h766I8nFn5EVELUe9pABc5qEqanTUERH1P39ww+K9uzfKEFqLPXYcDMQjbcpSPjmFgQ==
 
 "@tootallnate/once@1":
   version "1.1.2"

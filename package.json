@@ -36,7 +36,7 @@
     "organization": true
   },
   "devDependencies": {
-    "@taimos/projen": "^0.0.185",
+    "@taimos/projen": "^0.0.186",
     "@types/jest": "^28.1.8",
     "@types/node": "^14",
     "@typescript-eslint/eslint-plugin": "^5",
@@ -51,7 +51,7 @@
     "jest-junit": "^13",
     "json-schema": "^0.4.0",
     "npm-check-updates": "^16",
-    "projen": "^0.63.23",
+    "projen": "^0.63.33",
     "standard-version": "^9",
     "ts-jest": "^27",
     "ts-node": "^10.9.1",
@@ -63,12 +63,12 @@
     "constructs": "^10.0.0"
   },
   "dependencies": {
-    "@aws-sdk/client-identitystore": "^3.188.0",
-    "@aws-sdk/client-organizations": "^3.188.0",
-    "@aws-sdk/client-sso-admin": "^3.188.0",
+    "@aws-sdk/client-identitystore": "^3.194.0",
+    "@aws-sdk/client-organizations": "^3.194.0",
+    "@aws-sdk/client-sso-admin": "^3.194.0",
     "axios": "^0.27.2",
-    "cdk-iam-floyd": "^0.442.0",
-    "esbuild": "^0.15.11"
+    "cdk-iam-floyd": "^0.445.0",
+    "esbuild": "^0.15.12"
   },
   "keywords": [
     "cdk",

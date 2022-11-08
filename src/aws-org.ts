@@ -77,21 +77,29 @@ export async function generateAccountFile(): Promise<string> {
     NextToken = res.NextToken;
   } while (NextToken);
 
+  const orderedAccounts = Object.keys(accounts).sort().reduce(
+    (obj, key) => {
+      obj[key] = accounts[key];
+      return obj;
+    },
+    {} as { [name: string]: Account },
+  );
+
   return `// THIS FILE IS GENERATED; DO NOT MODIFY MANUALLY
 /* eslint-disable quotes */
 /* eslint-disable quote-props */
 /* eslint-disable comma-dangle */
 import { AccountList } from '@taimos/cdk-controltower';
 
-export type AccountName = ${Object.keys(accounts).map(name => `'${name}'`).join(' | ')};
+export type AccountName = ${Object.keys(orderedAccounts).map(name => `'${name}'`).join(' | ')};
 
-export const ACCOUNTS: AccountList<AccountName> = ${JSON.stringify(accounts, null, 2)};
+export const ACCOUNTS: AccountList<AccountName> = ${JSON.stringify(orderedAccounts, null, 2)};
 `;
 }
 
 export async function generateSsoConfigFile(): Promise<string> {
-  const idClient = new IdentitystoreClient({ region: 'eu-central-1' });
-  const ssoClient = new SSOAdminClient({ region: 'eu-central-1' });
+  const idClient = new IdentitystoreClient({});
+  const ssoClient = new SSOAdminClient({});
 
   const instances = await ssoClient.send(new ListInstancesCommand({}));
   if (instances.Instances?.length !== 1) {
@@ -110,15 +118,23 @@ export async function generateSsoConfigFile(): Promise<string> {
     NextToken = res.NextToken;
   } while (NextToken);
 
+  const orderedGroups = Object.keys(groups).sort().reduce(
+    (obj, key) => {
+      obj[key] = groups[key];
+      return obj;
+    },
+    {} as { [name: string]: Group },
+  );
+
   return `// THIS FILE IS GENERATED; DO NOT MODIFY MANUALLY
 /* eslint-disable quotes */
 /* eslint-disable quote-props */
 /* eslint-disable comma-dangle */
 import { GroupList, SsoConfig } from '@taimos/cdk-controltower';
 
-export type GroupName = ${Object.keys(groups).map(name => `'${name}'`).join(' | ')};
+export type GroupName = ${Object.keys(orderedGroups).map(name => `'${name}'`).join(' | ')};
 
-export const GROUPS: GroupList<GroupName> = ${JSON.stringify(groups, null, 2)};
+export const GROUPS: GroupList<GroupName> = ${JSON.stringify(orderedGroups, null, 2)};
 
 export const SSO_CONFIG: SsoConfig<GroupName> = {
   instanceArn: '${ssoInstance.InstanceArn}',

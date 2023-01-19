@@ -76,7 +76,7 @@ class AddAssociationTask extends tasks.CallAwsService {
         'InstanceArn': props.ssoInstanceArn,
         'PermissionSetArn': props.permissionSetArn,
         'TargetType': 'AWS_ACCOUNT',
-        'TargetId.$': props.accountIdSource ?? '$.accountId',
+        'TargetId.$': props.accountIdSource ?? '$.detail.serviceEventDetails.createManagedAccountStatus.account.accountId',
         'PrincipalType': 'GROUP',
         'PrincipalId': props.groupId,
       },

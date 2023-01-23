@@ -3,13 +3,13 @@ import { Stack, StackProps } from 'aws-cdk-lib';
 import { Repository } from 'aws-cdk-lib/aws-codecommit';
 import * as pipelines from 'aws-cdk-lib/pipelines';
 import * as constructs from 'constructs';
+import { BillingStage } from './billing-stage';
+import { LogArchiveStage } from './log-archive-stage';
+import { SsoStage } from './sso-stage';
 import { OrgPrincipalAware, SsoProps } from '../aws-org';
 import { BudgetConfig } from '../budget';
 import { CostReportingConfig } from '../cur';
 import { SsoPermissionConfig } from '../sso-permissions';
-import { BillingStage } from './billing-stage';
-import { LogArchiveStage } from './log-archive-stage';
-import { SsoStage } from './sso-stage';
 
 export type ControlTowerPipelineProps<T extends string, S extends string> = SsoProps<T, S> & OrgPrincipalAware & StackProps;
 

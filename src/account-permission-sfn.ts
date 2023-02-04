@@ -7,6 +7,26 @@ import {
 } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 
+/*
+This is a code written in AWS Cloud Development Kit (CDK) using TypeScript.
+The code creates an AWS Step Functions state machine, which consists of a
+series of steps for associating AWS Single Sign-On (SSO) permission sets
+with AWS accounts. The state machine is triggered by the creation of a new
+managed account in AWS Control Tower.
+
+It exports the AccountPermission class that creates the Step Functions state
+machine, and the AddAssociationTask class that defines each step in the state
+machine. The AddAssociationTask class extends the tasks.CallAwsService class,
+which calls the AWS SSO Admin API's createAccountAssignment action.
+
+The AccountPermission class takes the SSO instance ARN, and an array of default
+assignments in its properties, which include group ID, permission set name, and
+the permission set. It then creates an instance of the AddAssociationTask class
+for each default assignment and chains them together to form the state machine.
+Finally, it creates an AWS Event rule that triggers the state machine whenever
+a new managed account is created in AWS Control Tower.
+*/
+
 export interface AccountPermissionProps {
   readonly ssoInstanceArn: string;
   readonly defaultAssignments: {

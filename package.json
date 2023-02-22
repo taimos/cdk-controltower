@@ -64,7 +64,7 @@
   "dependencies": {
     "@aws-sdk/client-identitystore": "^3.272.0",
     "@aws-sdk/client-organizations": "^3.272.0",
-    "@aws-sdk/client-sso-admin": "^3.272.0",
+    "@aws-sdk/client-sso-admin": "^3.276.0",
     "axios": "^0.27.2",
     "cdk-iam-floyd": "^0.480.2",
     "esbuild": "^0.17.9"

@@ -50,7 +50,7 @@
     "jest": "^27",
     "jest-junit": "^13",
     "npm-check-updates": "^16",
-    "projen": "^0.67.66",
+    "projen": "^0.67.73",
     "standard-version": "^9",
     "ts-jest": "^27",
     "ts-node": "^10.9.1",
@@ -62,12 +62,12 @@
     "constructs": "^10.0.0"
   },
   "dependencies": {
-    "@aws-sdk/client-identitystore": "^3.279.0",
-    "@aws-sdk/client-organizations": "^3.279.0",
-    "@aws-sdk/client-sso-admin": "^3.279.0",
+    "@aws-sdk/client-identitystore": "^3.282.0",
+    "@aws-sdk/client-organizations": "^3.283.0",
+    "@aws-sdk/client-sso-admin": "^3.282.0",
     "axios": "^0.27.2",
-    "cdk-iam-floyd": "^0.483.0",
-    "esbuild": "^0.17.10"
+    "cdk-iam-floyd": "^0.487.0",
+    "esbuild": "^0.17.11"
   },
   "keywords": [
     "cdk",

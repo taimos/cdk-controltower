@@ -60,9 +60,9 @@
     "constructs": "^10.0.0"
   },
   "dependencies": {
-    "@aws-sdk/client-identitystore": "^3.501.0",
-    "@aws-sdk/client-organizations": "^3.501.0",
-    "@aws-sdk/client-sso-admin": "^3.501.0",
+    "@aws-sdk/client-identitystore": "^3.504.0",
+    "@aws-sdk/client-organizations": "^3.504.0",
+    "@aws-sdk/client-sso-admin": "^3.504.0",
     "axios": "^0.27.2",
     "cdk-iam-floyd": "^0.507.0",
     "esbuild": "^0.20.0"

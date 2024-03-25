@@ -240,7 +240,7 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@taimos/projen,@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,constructs,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest,jest-junit,projen,standard-version,ts-jest,ts-node,typedoc,typescript,aws-cdk-lib,@aws-sdk/client-identitystore,@aws-sdk/client-organizations,@aws-sdk/client-sso-admin,axios,cdk-iam-floyd,esbuild"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@taimos/projen,@types/jest,eslint-import-resolver-typescript,eslint-plugin-import,jest,projen,ts-jest,ts-node,typedoc,typescript,@aws-sdk/client-identitystore,@aws-sdk/client-organizations,@aws-sdk/client-sso-admin,axios,cdk-iam-floyd,esbuild"
         },
         {
           "exec": "yarn install --check-files"

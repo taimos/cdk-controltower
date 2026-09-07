@@ -9,25 +9,26 @@
     "fetch-sso-config": "lib/fetch-sso-config.js"
   },
   "scripts": {
-    "build": "npx projen build",
-    "bump": "npx projen bump",
-    "clobber": "npx projen clobber",
-    "compile": "npx projen compile",
-    "default": "npx projen default",
-    "docgen": "npx projen docgen",
-    "eject": "npx projen eject",
-    "eslint": "npx projen eslint",
-    "package": "npx projen package",
-    "post-compile": "npx projen post-compile",
-    "post-upgrade": "npx projen post-upgrade",
-    "pre-compile": "npx projen pre-compile",
-    "release": "npx projen release",
-    "test": "npx projen test",
-    "test:watch": "npx projen test:watch",
-    "unbump": "npx projen unbump",
-    "upgrade": "npx projen upgrade",
-    "watch": "npx projen watch",
-    "projen": "npx projen"
+    "build": "projen build",
+    "bump": "projen bump",
+    "bump:releasable-commits": "projen bump:releasable-commits",
+    "clobber": "projen clobber",
+    "compile": "projen compile",
+    "default": "projen default",
+    "docgen": "projen docgen",
+    "eject": "projen eject",
+    "eslint": "projen eslint",
+    "package": "projen package",
+    "post-compile": "projen post-compile",
+    "post-upgrade": "projen post-upgrade",
+    "pre-compile": "projen pre-compile",
+    "release": "projen release",
+    "test": "projen test",
+    "test:watch": "projen test:watch",
+    "unbump": "projen unbump",
+    "upgrade": "projen upgrade",
+    "watch": "projen watch",
+    "projen": "projen"
   },
   "author": {
     "name": "Taimos GmbH",
@@ -46,34 +47,41 @@
     "constructs": "10.3.0",
     "eslint": "^9",
     "eslint-import-resolver-typescript": "^2.7.1",
-    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-import": "^2.32.0",
     "jest": "^29",
-    "jest-junit": "^16",
-    "projen": "^0.91.18",
+    "jest-junit": "^17",
+    "projen": "^0.103.20",
     "ts-jest": "^29",
     "ts-node": "^10.9.2",
-    "typedoc": "^0.28.1",
-    "typescript": "^5.7.3"
+    "typedoc": "^0.28.20",
+    "typescript": "^5.9.3"
   },
   "peerDependencies": {
     "aws-cdk-lib": "^2.187.0",
     "constructs": "^10.3.0"
   },
   "dependencies": {
-    "@aws-sdk/client-identitystore": "^3.504.0",
-    "@aws-sdk/client-organizations": "^3.504.0",
-    "@aws-sdk/client-sso-admin": "^3.504.0",
-    "axios": "^1.8.4",
-    "cdk-iam-floyd": "^0.507.0",
-    "esbuild": "^0.25.2"
+    "@aws-sdk/client-identitystore": "^3.1127.0",
+    "@aws-sdk/client-organizations": "^3.1127.0",
+    "@aws-sdk/client-sso-admin": "^3.1127.0",
+    "axios": "^1.20.0",
+    "cdk-iam-floyd": "^0.831.0",
+    "esbuild": "^0.28.2"
   },
   "keywords": [
     "cdk",
     "controltower",
     "organizations"
   ],
+  "devEngines": {
+    "packageManager": {
+      "name": "npm",
+      "onFail": "ignore"
+    }
+  },
   "main": "lib/index.js",
   "license": "Apache-2.0",
+  "stability": "experimental",
   "publishConfig": {
     "access": "public"
   },
@@ -116,7 +124,7 @@
       "^.+\\.[t]sx?$": [
         "ts-jest",
         {
-          "tsconfig": "tsconfig.dev.json"
+          "tsconfig": "test/tsconfig.json"
         }
       ]
     }
